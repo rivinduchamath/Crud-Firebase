@@ -28,7 +28,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:textStyle="bold"
-                android:text="Enter Teacher Details"
+                android:text="Enter New Teacher"
                 android:textSize="20dp" />
             <EditText
                 android:id="@+id/nameEditText"

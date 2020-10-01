@@ -26,10 +26,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceSmall"
-                android:text="Teacher Name"
+                android:text="Teacher Data"
                 android:id="@+id/nameTextView"
                 android:padding="5dp"
-                android:textColor="@color/colorAccent" />
+                android:textColor="#D61139" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

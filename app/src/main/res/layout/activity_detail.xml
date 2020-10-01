@@ -40,8 +40,8 @@
                         android:padding="5dp"
                         android:maxLines="1"
                         android:textStyle="bold"
-                        android:textColor="@color/colorAccent"
-                        android:text="Teacher Name" />
+                        android:textColor="#DDBF19"
+                        android:text="Teacher" />
                     <TextView
                         android:id="@+id/dateDetailTextView"
                         android:layout_width="wrap_content"
