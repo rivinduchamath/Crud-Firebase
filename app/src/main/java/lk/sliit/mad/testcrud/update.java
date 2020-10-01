@@ -151,7 +151,7 @@ public class update extends AppCompatActivity {
                                     uploadProgressBar.setProgress(0);
                                 }
                             }, 500);
-                            Toast.makeText(update.this, "Teacher Upload successful", Toast.LENGTH_LONG).show();
+                            Toast.makeText(update.this, "Teacher Update successful", Toast.LENGTH_LONG).show();
 
                             Task<Uri> urlTask = taskSnapshot.getStorage().getDownloadUrl();
                             while (!urlTask.isSuccessful());
