@@ -22,6 +22,7 @@
             android:orientation="vertical"
             android:layout_width="wrap_content"
             android:layout_height="match_parent">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -47,6 +48,11 @@
                 android:textStyle="italic"
                 android:id="@+id/descriptionTextView"
                 android:padding="5dp"/>
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="35dp"
+                android:id="@+id/teacherDelete"
+                android:src="@drawable/ic_baseline_delete_24" />
         </LinearLayout>
     </LinearLayout>
 </androidx.cardview.widget.CardView>

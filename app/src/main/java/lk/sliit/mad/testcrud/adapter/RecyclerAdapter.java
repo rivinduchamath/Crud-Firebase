@@ -25,6 +25,7 @@ import lk.sliit.mad.testcrud.model.Teacher;
 
 public  class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.RecyclerViewHolder>{
     private Context mContext;
+    private ImageView btnDeleteTeacher;
     private List<Teacher> teachers;
     private OnItemClickListener mListener;
     public RecyclerAdapter(Context context, List<Teacher> uploads) {
@@ -66,9 +67,24 @@ public  class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Recyc
             descriptionTextView = itemView.findViewById(R.id.descriptionTextView);
             dateTextView = itemView.findViewById(R.id.dateTextView);
             teacherImageView = itemView.findViewById(R.id.teacherImageView);
+            btnDeleteTeacher = itemView.findViewById(R.id.teacherDelete);
             itemView.setOnClickListener(this);
             itemView.setOnCreateContextMenuListener(this);
+
+            btnDeleteTeacher.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (mListener != null) {
+                        int position = getAdapterPosition();
+                        if (position != RecyclerView.NO_POSITION) {
+                            mListener.onDeleteItemClick(position);
+                        }
+                    }
+                }
+            });
         }
+
+
         @Override
         public void onClick(View v) {
             if (mListener != null) {
@@ -96,6 +112,7 @@ public  class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Recyc
                             mListener.onShowItemClick(position);
                             return true;
                         case 2:
+                            System.out.println("LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLSsssssss");
                             mListener.onDeleteItemClick(position);
                             return true;
                     }

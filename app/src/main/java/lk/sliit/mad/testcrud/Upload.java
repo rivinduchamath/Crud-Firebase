@@ -118,12 +118,11 @@ public class Upload extends AppCompatActivity {
                                     uploadProgressBar.setProgress(0);
                                 }
                             }, 500);
-                            Toast.makeText(Upload.this, "Teacher  Upload successful", Toast.LENGTH_LONG).show();
+                            Toast.makeText(Upload.this, "Teacher Upload successful", Toast.LENGTH_LONG).show();
 
                             Task<Uri> urlTask = taskSnapshot.getStorage().getDownloadUrl();
                             while (!urlTask.isSuccessful());
                             String downloadUrl = String.valueOf(urlTask.getResult());
-                            System.out.println(downloadUrl);
 
                             Teacher upload = new Teacher(nameEditText.getText().toString().trim(),
                                     downloadUrl,
