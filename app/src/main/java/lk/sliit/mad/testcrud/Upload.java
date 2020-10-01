@@ -2,6 +2,7 @@ package lk.sliit.mad.testcrud;
 
 import android.content.ContentResolver;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Handler;
 
@@ -19,6 +20,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
@@ -27,6 +29,8 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.StorageTask;
 import com.google.firebase.storage.UploadTask;
 import com.squareup.picasso.Picasso;
+
+import java.io.ByteArrayOutputStream;
 
 import lk.sliit.mad.testcrud.model.Teacher;
 
@@ -43,6 +47,8 @@ public class Upload extends AppCompatActivity {
     private StorageReference mStorageRef;
     private DatabaseReference mDatabaseRef;
     private StorageTask mUploadTask;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate ( savedInstanceState );
@@ -93,6 +99,7 @@ public class Upload extends AppCompatActivity {
         return mime.getExtensionFromMimeType(cR.getType(uri));
     }
     private void uploadFile() {
+
         if (mImageUri != null) {
             StorageReference fileReference = mStorageRef.child(System.currentTimeMillis()
                     + "." + getFileExtension(mImageUri));
@@ -108,12 +115,18 @@ public class Upload extends AppCompatActivity {
                                 public void run() {
                                     uploadProgressBar.setVisibility(View.VISIBLE);
                                     uploadProgressBar.setIndeterminate(false);
-                                     uploadProgressBar.setProgress(0);
+                                    uploadProgressBar.setProgress(0);
                                 }
                             }, 500);
                             Toast.makeText(Upload.this, "Teacher  Upload successful", Toast.LENGTH_LONG).show();
+
+                            Task<Uri> urlTask = taskSnapshot.getStorage().getDownloadUrl();
+                            while (!urlTask.isSuccessful());
+                            String downloadUrl = String.valueOf(urlTask.getResult());
+                            System.out.println(downloadUrl);
+
                             Teacher upload = new Teacher(nameEditText.getText().toString().trim(),
-                                    taskSnapshot.getUploadSessionUri().toString(),
+                                    downloadUrl,
                                     descriptionEditText.getText ().toString ());
                             String uploadId = mDatabaseRef.push().getKey();
                             mDatabaseRef.child(uploadId).setValue(upload);
