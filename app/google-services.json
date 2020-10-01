@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1043756842320",
+    "firebase_url": "https://testcrud-265c7.firebaseio.com",
+    "project_id": "testcrud-265c7",
+    "storage_bucket": "testcrud-265c7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1043756842320:android:906fb9ca45724fe30ac055",
+        "android_client_info": {
+          "package_name": "lk.sliit.mad.testcrud"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1043756842320-3s0htr41v3fcsl60i0lrh37knt8ndo13.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDs1hM7AeQ7RQ8mQTl0vQ7vg8bbUyBBR0s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1043756842320-3s0htr41v3fcsl60i0lrh37knt8ndo13.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
