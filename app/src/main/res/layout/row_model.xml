@@ -53,6 +53,11 @@
                 android:layout_height="35dp"
                 android:id="@+id/teacherDelete"
                 android:src="@drawable/ic_baseline_delete_24" />
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="35dp"
+                android:id="@+id/teacherUpdate"
+                android:src="@drawable/ic_about" />
         </LinearLayout>
     </LinearLayout>
 </androidx.cardview.widget.CardView>

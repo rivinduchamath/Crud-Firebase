@@ -43,13 +43,13 @@ public class detail extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
         initializeWidgets();
-        //RECEIVE DATA FROM ITEMSACTIVITY VIA INTENT
+
         Intent i=this.getIntent();
         String name=i.getExtras().getString("NAME_KEY");
         String description=i.getExtras().getString("DESCRIPTION_KEY");
         String imageURL=i.getExtras().getString("IMAGE_KEY");
-        System.out.println("aaaaaaaaaaaaaaaadddddddddddddddddddddddddddddssssssss0"+imageURL);
-        //SET RECEIVED DATA TO TEXTVIEWS AND IMAGEVIEWS
+
+
         nameDetailTextView.setText(name);
         descriptionDetailTextView.setText(description);
         dateDetailTextView.setText("DATE: "+getDateToday());

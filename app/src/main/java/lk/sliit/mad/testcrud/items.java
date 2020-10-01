@@ -42,6 +42,15 @@ public class items extends AppCompatActivity implements RecyclerAdapter.OnItemCl
         intent.putExtra("IMAGE_KEY",data[2]);
         startActivity(intent);
     }
+
+    private void updateActivity(String[] data){
+        Intent intent = new Intent(this, update.class);
+        intent.putExtra("ID_KEY",data[0]);
+        intent.putExtra("NAME_KEY",data[1]);
+        intent.putExtra("DESCRIPTION_KEY",data[2]);
+        intent.putExtra("IMAGE_KEY",data[3]);
+        startActivity(intent);
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate ( savedInstanceState );
@@ -79,15 +88,15 @@ public class items extends AppCompatActivity implements RecyclerAdapter.OnItemCl
     public void onItemClick(int position) {
         Teacher clickedTeacher=mTeachers.get(position);
         String[] teacherData={clickedTeacher.getName(),clickedTeacher.getDescription(),clickedTeacher.getImageUrl()};
-        System.out.println(teacherData +"aaaaaaaaaaaaakkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkaaaaaaaaaaaaa");
+
         openDetailActivity(teacherData);
     }
     @Override
     public void onShowItemClick(int position) {
         Teacher clickedTeacher=mTeachers.get(position);
-        String[] teacherData={clickedTeacher.getName(),clickedTeacher.getDescription(),clickedTeacher.getImageUrl()};
-        System.out.println(teacherData +"aaafffffffffffffffffffaaaaaaaaaaaaaaaaaaaaaa");
-        openDetailActivity(teacherData);
+        final String selectedKey = clickedTeacher.getKey();
+        String[] teacherData={selectedKey,clickedTeacher.getName(),clickedTeacher.getDescription(),clickedTeacher.getImageUrl()};
+        updateActivity(teacherData);
     }
     @Override
     public void onDeleteItemClick(int position) {

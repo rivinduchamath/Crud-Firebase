@@ -14,6 +14,7 @@
         android:theme="@style/AppTheme">
         <activity android:name=".Upload"></activity>
         <activity android:name=".detail" />
+        <activity android:name=".update" />
         <activity android:name=".items" />
         <activity android:name=".MainActivity">
             <intent-filter>

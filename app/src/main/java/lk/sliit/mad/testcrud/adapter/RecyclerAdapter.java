@@ -25,7 +25,7 @@ import lk.sliit.mad.testcrud.model.Teacher;
 
 public  class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.RecyclerViewHolder>{
     private Context mContext;
-    private ImageView btnDeleteTeacher;
+    private ImageView btnDeleteTeacher,teacherUpdate;
     private List<Teacher> teachers;
     private OnItemClickListener mListener;
     public RecyclerAdapter(Context context, List<Teacher> uploads) {
@@ -45,7 +45,6 @@ public  class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Recyc
         holder.descriptionTextView.setText(currentTeacher.getDescription());
         holder.dateTextView.setText(getDateToday());
 
-        System.out.println("rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr" + currentTeacher.getImageUrl());
         Picasso.with(mContext)
                 .load(currentTeacher.getImageUrl())
                 .placeholder(R.drawable.amy)
@@ -68,6 +67,7 @@ public  class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Recyc
             dateTextView = itemView.findViewById(R.id.dateTextView);
             teacherImageView = itemView.findViewById(R.id.teacherImageView);
             btnDeleteTeacher = itemView.findViewById(R.id.teacherDelete);
+            teacherUpdate = itemView.findViewById(R.id.teacherUpdate);
             itemView.setOnClickListener(this);
             itemView.setOnCreateContextMenuListener(this);
 
@@ -82,8 +82,18 @@ public  class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Recyc
                     }
                 }
             });
+            teacherUpdate.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (mListener != null) {
+                        int position = getAdapterPosition();
+                        if (position != RecyclerView.NO_POSITION) {
+                            mListener.onShowItemClick(position);
+                        }
+                    }
+                }
+            });
         }
-
 
         @Override
         public void onClick(View v) {
@@ -112,7 +122,6 @@ public  class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Recyc
                             mListener.onShowItemClick(position);
                             return true;
                         case 2:
-                            System.out.println("LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLSsssssss");
                             mListener.onDeleteItemClick(position);
                             return true;
                     }
