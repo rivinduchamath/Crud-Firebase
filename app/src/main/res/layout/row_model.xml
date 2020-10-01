@@ -17,7 +17,7 @@
             android:layout_height="150dp"
             android:id="@+id/teacherImageView"
             android:padding="5dp"
-            android:src="@drawable/amy" />
+            android:src="@drawable/logo" />
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="wrap_content"

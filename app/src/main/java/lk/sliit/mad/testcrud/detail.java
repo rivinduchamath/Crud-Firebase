@@ -56,7 +56,7 @@ public class detail extends AppCompatActivity {
         categoryDetailTextView.setText("CATEGORY: "+getRandomCategory());
         Picasso.with(this)
                 .load(imageURL)
-                .placeholder(R.drawable.logo)
+                .placeholder(R.drawable.amy)
                 .fit()
                 .centerCrop()
                 .into(teacherDetailImageView);

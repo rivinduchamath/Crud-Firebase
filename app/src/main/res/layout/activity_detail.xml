@@ -27,7 +27,7 @@
                     android:padding="5dp"
                     android:layout_alignParentTop="true"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/logo" />
+                    android:src="@drawable/amy" />
                 <LinearLayout
                     android:orientation="vertical"
                     android:layout_width="match_parent"

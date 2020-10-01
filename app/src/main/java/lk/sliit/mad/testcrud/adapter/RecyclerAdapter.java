@@ -47,7 +47,7 @@ public  class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Recyc
         System.out.println("rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr" + currentTeacher.getImageUrl());
         Picasso.with(mContext)
                 .load(currentTeacher.getImageUrl())
-                .placeholder(R.drawable.logo)
+                .placeholder(R.drawable.amy)
                 .fit()
                 .centerCrop()
                 .into(holder.teacherImageView);
