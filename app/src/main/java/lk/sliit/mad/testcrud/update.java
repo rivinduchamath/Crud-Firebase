@@ -79,10 +79,8 @@ public class update extends AppCompatActivity {
         String name=i.getExtras().getString("NAME_KEY");
         String description=i.getExtras().getString("DESCRIPTION_KEY");
         String imageURL=i.getExtras().getString("IMAGE_KEY");
-        mImageUri = Uri.parse(i.getExtras().getString("IMAGE_KEY"));
 
 
-        System.out.println(imageURL+"RRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR");
         nameDetailTextView.setText(name);
         descriptionDetailTextView.setText(description);
         Picasso.with(this)
@@ -96,9 +94,6 @@ public class update extends AppCompatActivity {
         final String selectedKey  = id;
         assert imageURL != null;
         final StorageReference imageRef = mStorage.getReferenceFromUrl(imageURL);
-
-//        updateUploadFile(selectedKey);
-
 
 
         chooseImageBtn.setOnClickListener(new View.OnClickListener() {
@@ -159,7 +154,7 @@ public class update extends AppCompatActivity {
 
                             Teacher upload = new Teacher(nameEditText.getText().toString().trim(),
                                     downloadUrl,
-                                    descriptionEditText.getText ().toString ());
+                                    descriptionEditText.getText().toString ());
                             String uploadId = selectedKey;
                             mDatabaseRef.child(uploadId).setValue(upload);
                             uploadProgressBar.setVisibility(View.INVISIBLE);
@@ -188,7 +183,6 @@ public class update extends AppCompatActivity {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
-
 
     private void openFileChooser() {
         Intent intent = new Intent();
